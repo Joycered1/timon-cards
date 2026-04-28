@@ -1,0 +1,271 @@
+.section {
+  position: relative;
+  background: #000;
+  padding-top: 80px; /* clear fixed navbar */
+  overflow: hidden;
+}
+
+/* ── Brick background (Figma export, 1132×683, x≈0, y=0 of hero) ─────────── */
+.brickWrap {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1132px, 100%);
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.brickImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Layout ───────────────────────────────────── */
+.container {
+  position: relative;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 80px var(--px) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ── Headlines ────────────────────────────────── */
+.headlines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.h1 {
+  font-family: var(--f-degular-text);
+  font-weight: 900;
+  font-size: clamp(44px, 6.5vw, 92px);
+  line-height: 1.0;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.h1Blue {
+  composes: h1;
+  font-size: clamp(44px, 7vw, 100px);
+  background: linear-gradient(90deg, #60a5fa 0%, #1565fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Hero card ────────────────────────────────── */
+.card {
+  position: relative;
+  background: #111;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 480px;
+}
+
+/* Image fills the full card */
+.mockupWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.mockup {
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Diagonal gradient overlay – darkens left for text legibility (matches Figma) */
+.mockupWrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0.00) 70%
+  );
+  pointer-events: none;
+}
+
+/* Text overlaid on the dark left portion of the image */
+.cardText {
+  position: relative;
+  z-index: 1;
+  padding: 40px 48px 48px 56px;
+  max-width: 580px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 48px;
+}
+
+.cardHeadline {
+  font-family: var(--f-satoshi);
+  font-weight: 900;
+  max-width: 400px;
+  font-size: clamp(28px, 3.8vw, 56px);
+  line-height: 1.03;
+  color: #fff;
+  margin: 48px 0px 0px 0px;
+}
+
+.cardSubline {
+  font-family: var(--f-satoshi);
+  font-weight: 900;
+  max-width: 400px;
+  font-size: clamp(28px, 3.8vw, 56px);
+  line-height: 1.03;
+  margin: 0;
+  margin-top: -20px;
+  background: linear-gradient(135deg, #939393 0%, #dddddd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 12, 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--f-satoshi);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── Countries marquee ────────────────────────── */
+.marqueeOuter {
+  margin-top: 32px;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+  padding: 0 12px 40px;
+}
+
+/* ── Country badge – exact Figma spec ─────────── */
+/* Fill: rgba(0,0,0,0.20) + GLASS + 1px gradient stroke */
+.badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px 8px 12px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.20);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  white-space: nowrap;
+  color: #fff;
+  font-family: var(--f-degular);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Gradient border (1px INSIDE, linear ~135°, blue tones at 30% opacity) */
+.badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(41, 123, 255, 0.30) 2%,
+    rgba(114, 167, 255, 0.30) 51%,
+    rgba(55, 118, 255, 0.30) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Flag icon – 24×24 circle-clipped */
+.flagIcon {
+  width: 24px;
+  height: 20px;
+  border-radius: 50%;
+  background-size: cover !important;
+  background-position: center !important;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: none;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 1000px) {
+  .card { min-height: 380px; }
+  .cardText {
+    min-height: 380px;
+    padding: 28px 28px 36px;
+    max-width: 100%;
+    gap: 48px;
+    background: linear-gradient(to right, rgba(0,0,0,0.75) 55%, transparent 100%);
+  }
+  .mockup { object-position: center center; }
+}
+
+@media (max-width: 450px) {
+  .container { padding-top: 48px; gap: 24px; }
+  .headlines { gap: 2px; }
+
+  /* Hero card: slim it on mobile, image becomes a mood bg */
+  .card { min-height: auto; }
+  .cardText {
+    position: relative;
+    min-height: 0;
+    padding: 32px 20px 32px;
+    gap: 40px;
+    background: linear-gradient(
+      105deg,
+      rgba(0,0,0,0.80) 0%,
+      rgba(0,0,0,0.55) 60%,
+      rgba(0,0,0,0.15) 100%
+    );
+  }
+
+  /* Stack app buttons vertically on small screens */
+  .buttons { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .btn { font-size: 15px; padding: 14px 22px; width: 100%; justify-content: center;}
+
+  /* Smaller badge text */
+  .badge { font-size: 13px; padding: 6px 10px 6px 10px; gap: 8px; }
+  .flagIcon { width: 20px; height: 20px; }
+  .marqueeOuter { margin-top: 16px; }
+}

@@ -1,0 +1,225 @@
+.section {
+  background: var(--surface-gray);
+  padding: 100px 0;
+}
+
+/* ── Two-column layout ──────────────────── */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--px);
+  display: grid;
+  grid-template-columns: 358fr 620fr;
+  gap: 84px;
+  align-items: center;
+}
+
+/* ── Phone column ───────────────────────── */
+.phoneCol {
+  display: flex;
+  justify-content: center;
+}
+
+/* White card shell matching Figma (r=32) — also the drag target */
+.phoneFrame {
+  width: 358px;
+  height: 699px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.10);
+  position: relative;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.phoneImgWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.phoneImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none; /* prevents browser drag on img */
+}
+
+/* ── Steps column ───────────────────────── */
+.stepsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 49px 48px;
+}
+
+.title {
+  font-family: var(--f-satoshi);
+  font-weight: 900;
+  font-size: clamp(32px, 3.5vw, 48px);
+  line-height: 1.1;
+  color: #2a2b2d;
+  margin: 0;
+}
+
+/* ── Step list ──────────────────────────── */
+.stepList {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Step row is a button so users can click to jump */
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 0 8px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.stepTitle {
+  font-family: var(--f-degular);
+  font-weight: 600;
+  font-size: 24px;
+  color: #3c4047;
+  margin: 0;
+  transition: color 0.3s;
+}
+.stepTitleActive { color: #121212; }
+
+.stepBody {
+  font-family: var(--f-satoshi);
+  font-weight: 500;
+  font-size: 20px;
+  color: #686e7a;
+  margin: 0;
+  line-height: 1.5;
+  transition: color 0.3s;
+}
+.stepBodyActive { color: #3c4047; }
+
+/* Connector line between steps */
+.connector {
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+.connectorLine {
+  width: 4px;
+  height: 52px;
+  border-radius: 24px;
+  background: #2672ee;
+}
+
+/* ── Progress dots ──────────────────────── */
+.dots {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.dot {
+  height: 8px;
+  width: 37px;
+  border-radius: 100px;
+  background: #e0e3e7;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.35s ease, background 0.35s ease;
+}
+.dotActive {
+  width: 73px;
+  background: #121212;
+}
+
+/* CTA */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #2672ee 0%, #0a4ce5 100%);
+  color: #fff;
+  font-family: var(--f-satoshi);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 14px 12px 16px;
+  border-radius: 12px;
+  align-self: flex-start;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── Responsive ─────────────────────────── */
+@media (max-width: 1000px) {
+  .section { padding: 72px 0; }
+  .container {
+    gap: 40px;
+    max-width: var(--max-w);
+    padding-inline: 48px;
+  }
+  .phoneFrame {
+    width: min(300px, 85vw);
+    height: 600px;
+    aspect-ratio: 358 / 699;
+    margin: 0 auto;
+  }
+  .stepsCol  { padding: 32px 24px; gap: 24px; }
+  .title     { font-size: clamp(28px, 7vw, 40px); }
+  .stepTitle { font-size: 20px; }
+  .stepBody  { font-size: 16px; }
+}
+
+@media (max-width: 650px) 
+{
+  .section { padding: 72px 0; }
+  .container {
+    gap: 40px;
+    grid-template-columns: 1fr;;
+    padding-inline: 48px;
+    justify-content: center;
+  }
+  .stepsCol  { padding: 24px 20px; gap: 24px; }
+  .title     { font-size: 26px; }
+  .stepTitle { font-size: 18px; }
+  .stepBody  { font-size: 15px; }
+  .connectorLine { height: 36px; }
+  .dot       { height: 6px; width: 30px; }
+  .dotActive { width: 56px; }
+}
+
+@media (max-width: 350px) 
+{
+  .section { padding: 48px 0; }
+  .container {
+    gap: 40px;
+    grid-template-columns: 1fr;;
+    padding-inline: 48px;
+    justify-content: center;
+  }
+.phoneFrame {
+  width: min(300px, 85vw);
+  height: 500px;
+  aspect-ratio: 358 / 699;
+  margin: 0 auto;
+}
+  .stepsCol  { padding: 24px 20px; gap: 24px; }
+  .title     { font-size: 26px; }
+  .stepTitle { font-size: 18px; }
+  .stepBody  { font-size: 15px; }
+  .connectorLine { height: 36px; }
+  .dot       { height: 6px; width: 30px; }
+  .dotActive { width: 56px; }
+}

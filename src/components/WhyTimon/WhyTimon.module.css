@@ -1,0 +1,246 @@
+.section {
+  background: #fff;
+  padding: 100px 0;
+}
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--px);
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ── Title – centred ──────────────────────────── */
+.title {
+  font-family: var(--f-satoshi);
+  font-weight: 900;
+  font-size: clamp(36px, 4.8vw, 64px);
+  line-height: 1.1;
+  color: #2a2b2d;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 800px;
+}
+
+/* ── Bento shell ──────────────────────────────── */
+.bento {
+  background: #f5f6fa;
+  border-radius: 24px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Row 1 – 684 : 370  */
+.row1 {
+  display: grid;
+  grid-template-columns: 684fr 370fr;
+  gap: 24px;
+}
+
+/* Row 2 – 370 : 685  */
+.row2 {
+  display: grid;
+  grid-template-columns: 370fr 685fr;
+  gap: 24px;
+}
+
+/* ── Generic card ─────────────────────────────── */
+.card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.cardBlack { background: #000; min-height: 469px; }
+.cardWhite {
+  background: #fff;
+  border: 1px solid #edeef2;
+  min-height: 377px;
+}
+/* Row-1 white card is taller */
+.row1 .cardWhite { min-height: 469px; }
+
+.cardBlue  { background: #1e3a8a; min-height: 377px; }
+
+/* ── Content block (always top-left, x=27 y=20) ─ */
+.content {
+  position: absolute;
+  top: 27px;
+  left: 27px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1;
+}
+
+/* Black / blue card: max 284–315 px wide; white cards same */
+.cardBlack .content { max-width: 284px; }
+.cardWhite .content { max-width: 315px; }
+.cardBlue  .content { max-width: 314px; }
+
+/* ── Icon bubble (62×62, r=100) ───────────────── */
+.iconBubble {
+  width: 62px;
+  height: 62px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconGradient { background: linear-gradient(180deg, #5391f7 0%, #3c63ee 100%); }
+.iconPink     { background: #f15bb5; }
+
+/* ── Card text ────────────────────────────────── */
+.cardTitle {
+  font-family: var(--f-degular);
+  font-weight: 600;
+  font-size: clamp(22px, 2vw, 32px);
+  line-height: 1.1;
+  color: #2a2b2d;
+  margin: 0;
+}
+
+.cardBody {
+  font-family: var(--f-degular);
+  font-weight: 500;
+  font-size: clamp(15px, 1.4vw, 20px);
+  line-height: 1.45;
+  color: #3c4047;
+  margin: 0;
+}
+
+.onDark      { color: #fff !important; }
+.onDarkMuted { color: rgba(217,217,217,0.88) !important; }
+
+/* ── Card 1 – iPhone image ────────────────────── */
+/* Figma: x=277, y=-66 in 684×469 card */
+.giftsImgWrap {
+  position: absolute;
+  left: 40.5%;   /* 277/684 */
+  top: -66px;
+  width: 70.8%;  /* 484/684 */
+  z-index: 0;
+}
+
+.giftsImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 32px;
+}
+
+/* ── Card 2 – Global (globe + card + terminal) ── */
+.globalImgWrap {
+  position: absolute;
+  right: -4%;
+  bottom: -8%;
+  width: 72%;
+  z-index: 0;
+}
+
+.globalImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Card 3 – Fund (cards + orbit + coins) ─────── */
+.fundImgWrap {
+  position: absolute;
+  right: -4%;
+  bottom: -10%;
+  width: 70%;
+  z-index: 0;
+}
+
+.fundImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ── Card 4 – Physical cards ──────────────────── */
+/* Group: x=361, y=50 in 685×377 card */
+.payCardsWrap {
+  position: absolute;
+  left: 52.7%;   /* 361/685 */
+  top: 13.3%;    /* 50/377 */
+  width: 50%;    /* 343/685 */
+  z-index: 0;
+}
+
+.payCards {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 1000px) {
+  .row1, .row2 { grid-template-columns: 1fr; }
+
+  .cardBlack,
+  .row1 .cardWhite { min-height: 340px; }
+  .cardWhite,
+  .cardBlue        { min-height: 340px; }
+
+  .cardBlack .content { max-width: 40%; }
+  .cardWhite .content,
+  .cardBlue  .content { max-width: 40%; }
+
+  .giftsImgWrap { left: 46%; top: -20px; width: 60%; }
+  .globalImgWrap { width: 60%; }
+  .fundImgWrap   { width: 58%; }
+  .payCardsWrap { left: 48%; width: 54%; top: 8%; }
+}
+
+@media (max-width: 700px) {
+  .section   { padding: 64px 0; }
+  .container { gap: 20px; }
+  .bento     { padding: 8px; gap: 8px; }
+  .title     { font-size: clamp(28px, 7vw, 40px); }
+
+  .cardBlack,
+  .row1 .cardWhite { min-height: 300px; }
+  .cardWhite,
+  .cardBlue        { min-height: 280px; }
+
+  .content     { top: 20px; left: 20px; gap: 8px; }
+  .cardBlack .content,
+  .cardWhite .content,
+  .cardBlue  .content { max-width: 52%; }
+
+  .cardTitle { font-size: clamp(17px, 4vw, 22px); }
+  .cardBody  { font-size: clamp(13px, 3vw, 15px); }
+
+  .giftsImgWrap { left: 60%; top: -10px; width: 50%; }
+  .globalImgWrap { width: 55%; right: -2%; bottom: -2%; }
+  .fundImgWrap   { width: 54%; right: -2%; bottom: -2%; }
+  .payCardsWrap { left: 60%; width: 40%; top: 16%; }
+}
+
+@media (max-width: 450px) {
+  .cardBlack,
+  .row1 .cardWhite { min-height: 240px; }
+  .cardWhite,
+  .cardBlue        { min-height: 240px; }
+
+  .cardBlack .content,
+  .cardWhite .content,
+  .cardBlue  .content { max-width: 90%; }
+
+  .cardTitle { font-size: 24px; }
+  .cardBody  { font-size: 16px; }
+
+  .giftsImgWrap { left: 42%; width: 62%; display: none;}
+  .globalImgWrap { display: none; }
+  .fundImgWrap   { display: none; }
+  .payCardsWrap { left: 44%; width: 60%; display: none; }
+}
