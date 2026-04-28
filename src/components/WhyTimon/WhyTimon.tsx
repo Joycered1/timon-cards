@@ -4,13 +4,13 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './WhyTimon.module.css';
 
-const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const fadeUp = {
-  hidden:  { opacity: 0, y: 28 },
+  hidden:  { opacity: 0, y: 32 },
   visible: (i: number) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.55, delay: i * 0.1, ease: EASE },
+    transition: { duration: 0.75, delay: i * 0.12, ease: EASE },
   }),
 };
 
@@ -29,7 +29,7 @@ export default function WhyTimon() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         >
           Why smart travellers and spenders need Timon
         </motion.h2>

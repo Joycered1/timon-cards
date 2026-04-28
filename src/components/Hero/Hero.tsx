@@ -47,9 +47,9 @@ export default function Hero() {
         {/* Headline */}
         <motion.div
           className={styles.headlines}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
         >
           <h1 className={styles.h1}>PAYMENT DECLINED ON A TRIP?</h1>
           <h1 className={styles.h1Blue}>NOT ON OUR CARD!</h1>
@@ -58,9 +58,9 @@ export default function Hero() {
         {/* Hero card */}
         <motion.div
           className={styles.card}
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 48 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.0, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className={styles.cardText}>
             <p className={styles.cardHeadline}>Trusted by 50,000+ travellers.</p>
