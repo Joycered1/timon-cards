@@ -67,8 +67,8 @@ export default function WhyTimon() {
               {...hoverProps}
             >
               <div className={styles.content}>
-                <IconBubble variant="pink"><TrendingIcon /></IconBubble>
-                <h3 className={styles.cardTitle}>Your money works everywhere.</h3>
+                <IconBubble variant="pink"><GlobeIcon /></IconBubble>
+                <h3 className={styles.cardTitle}>Your money will always work.</h3>
                 <p className={styles.cardBody}>
                 For everywhere VISA and Mastercard is accepted, you'd never be stranded or embarrassed because your card will work.
                 </p>
@@ -148,10 +148,10 @@ function WifiIcon() {
     </svg>
   );
 }
-function TrendingIcon() {
+function GlobeIcon() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <path fillRule="evenodd" clipRule="evenodd" d="M19.25 11.125C18.3525 11.125 17.625 10.3975 17.625 9.5C17.625 8.60254 18.3525 7.875 19.25 7.875H27.375C28.2725 7.875 29 8.60254 29 9.5V17.625C29 18.5225 28.2725 19.25 27.375 19.25C26.4775 19.25 25.75 18.5225 25.75 17.625V13.4231L18.774 20.399C18.1394 21.0337 17.1106 21.0337 16.476 20.399L12.75 16.6731L5.77405 23.6491C5.13945 24.2837 4.11055 24.2837 3.47595 23.6491C2.84135 23.0144 2.84135 21.9856 3.47595 21.351L11.601 13.226C12.2356 12.5914 13.2644 12.5914 13.899 13.226L17.625 16.9519L23.4519 11.125H19.25Z" fill="white"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M16 29C23.1797 29 29 23.1797 29 16C29 8.8203 23.1797 3 16 3C8.8203 3 3 8.8203 3 16C3 23.1797 8.8203 29 16 29ZM6.78915 12.7945C7.39631 11.0496 8.48531 9.53029 9.89684 8.3959C10.3322 9.0607 11.0836 9.49985 11.9375 9.49985C13.2837 9.49985 14.375 10.5912 14.375 11.9374V12.7499C14.375 14.5448 15.8301 15.9999 17.625 15.9999C19.42 15.9999 20.875 14.5448 20.875 12.7499C20.875 11.2222 21.9291 9.94066 23.3496 9.59293C24.8445 11.3064 25.75 13.5474 25.75 15.9999C25.75 16.5536 25.7039 17.0966 25.6152 17.6251H24.125C22.33 17.6251 20.875 19.0802 20.875 20.8751V24.4455C19.4409 25.2751 17.7757 25.7499 15.9999 25.7499V22.5C15.9999 20.7051 14.5448 19.25 12.7499 19.25C10.9549 19.25 9.49986 17.7949 9.49986 16C9.49986 14.3888 8.32742 13.0514 6.78915 12.7945Z" fill="white"/>
     </svg>
   );
 }
