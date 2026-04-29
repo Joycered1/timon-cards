@@ -5,6 +5,8 @@ import ClientProviders from "@/components/ClientProviders";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
+const base_url = process.env.NEXT_PUBLIC_BASE_URL || "https//timon-cards.netlify.app/"
+
 export const metadata: Metadata = {
   title: "Timon Cards | Designed for travellers who never want to be stranded",
   description:
@@ -29,14 +31,14 @@ export const metadata: Metadata = {
     title: "Timon Cards | Designed for travellers who never want to be stranded",
     description:
       "Load any currency or stablecoin and spend everywhere Visa and Mastercard work. Earn rewards on every transaction. Apple and Google Pay supported.",
-    images: [{ url: "/social%20card.png" }],
+    images: [{ url: `${base_url}/social-card.png` }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Timon Cards | Designed for travellers who never want to be stranded",
     description:
       "Load any currency or stablecoin and spend everywhere Visa and Mastercard work. Earn rewards on every transaction. Apple and Google Pay supported.",
-    images: ["/social%20card.png"],
+    images: [`${base_url}/social-card.png`],
   },
 };
 
