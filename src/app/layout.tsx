@@ -25,6 +25,19 @@ export const metadata: Metadata = {
     "Mastercard for Nigerians abroad",
     "card for travelling from Nigeria",
   ],
+  openGraph: {
+    title: "Timon Cards | Designed for travellers who never want to be stranded",
+    description:
+      "Load any currency or stablecoin and spend everywhere Visa and Mastercard work. Earn rewards on every transaction. Apple and Google Pay supported.",
+    images: [{ url: "/social%20card.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Timon Cards | Designed for travellers who never want to be stranded",
+    description:
+      "Load any currency or stablecoin and spend everywhere Visa and Mastercard work. Earn rewards on every transaction. Apple and Google Pay supported.",
+    images: ["/social%20card.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
