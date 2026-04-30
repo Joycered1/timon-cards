@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     title: "Timon Cards | Designed for travellers who never want to be stranded",
     description:
       "Load any currency or stablecoin and spend everywhere Visa and Mastercard work. Earn rewards on every transaction. Apple and Google Pay supported.",
-    images: [{ url: `${base_url}/social-card.png`, width: 1200, height: 630 }],
+    images: [{ url: `${base_url}/social-card2.png`, width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Timon Cards | Designed for travellers who never want to be stranded",
     description:
       "Load any currency or stablecoin and spend everywhere Visa and Mastercard work. Earn rewards on every transaction. Apple and Google Pay supported.",
-    images: [`${base_url}/social-card.png`],
+    images: [`${base_url}/social-card2.png`],
   },
 };
 
